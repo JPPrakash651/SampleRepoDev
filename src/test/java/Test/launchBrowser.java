@@ -15,14 +15,19 @@ public class launchBrowser {
 		driver.manage().window().maximize();
 		driver.get("https://www.google.com/");
 		WebElement txtSearch = driver.findElement(By.xpath("//input[@title='Search']"));
-		txtSearch.sendKeys("HDFC login");
+		txtSearch.sendKeys("HDFC login netbanking");
 		WebElement btnSearch = driver.findElement(By.xpath("(//input[@value='Google Search'])[2]"));
 		btnSearch.click();
-		WebElement lnkSearchResult = driver.findElement(By.xpath("//h3[text()='NetBanking - HDFC Bank']"));
+		WebElement lnkSearchResult = driver.findElement(By.xpath("//h3[text()='Welcome to HDFC Bank NetBanking']"));
 		lnkSearchResult.click(); 
 		driver.switchTo().frame(0);
-		WebElement btnContinueHDFC = driver.findElement(By.xpath("//a[text()='Continue to NetBanking']"));
-		btnContinueHDFC.click();
+		WebElement txtUserName = driver.findElement(By.name("fldLoginUserId"));
+		txtUserName.sendKeys("123456");
+		WebElement btnContinue = driver.findElement(By.xpath("//img[@alt='continue']"));
+		btnContinue.click();
+		
+		WebElement btnLogin = driver.findElement(By.xpath("//img[@alt='Login']"));
+		btnLogin.click();
 		
 	}
 
