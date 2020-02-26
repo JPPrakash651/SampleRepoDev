@@ -31,7 +31,7 @@ public class launchBrowser {
 		WebElement btnContinue1 = driver.findElement(By.xpath("//img[@alt='Login']"));
 		btnContinue1.click();
 		driver.close();
-		
+
 	}
 
 }
