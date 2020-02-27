@@ -5,21 +5,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class LibGlobal  {
-	public static WebDriver driver;
+	public WebDriver driver;
 
-	public static WebDriver launchBrowse() {
+	public WebDriver launchBrowse() {
 		System.setProperty("webdriver.chrome.driver",
-				"D:\\Selenium Project\\SampleProject\\Driver\\chromedriver.exe");
+				"C:\\Users\\120190\\Documents\\Personal\\SW\\Sample Automation\\SampleRepoDev\\Driver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		return driver;
 	}
 
-	public static void launchURL(String s) {
-		
+	public void launchURL(String s) {
 		driver.get(s);
 	}
-	public static void txtBoxWrite(WebElement e, String a1) {
+	public void txtBoxWrite(WebElement e, String a1) {
 		e.sendKeys(a1);
 		
 	}	

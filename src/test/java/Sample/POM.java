@@ -9,15 +9,15 @@ import Sample2.LibGlobal;
 
 public class POM extends LibGlobal {
 	WebDriver driver;
+
 	public POM() {
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath="//input[@title='Search']")
-	 private WebElement searchBox;
-	public WebElement getSearchBox() {
-		return searchBox;
-	}
-	
-	
 
+	@FindBy(xpath = "//input[@class='gLFyf gsfi']")
+	WebElement GoogleSearch;
+
+	public WebElement getGoogleSearch() {
+		return GoogleSearch;
+	}
 }

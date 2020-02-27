@@ -6,12 +6,12 @@ import Sample.POM;
 import Sample2.LibGlobal;
 
 public class StepDef extends LibGlobal {
-	static POM pom;
-	static WebDriver driver;
+	
 	public static void main(String[] args) {
+		POM pom = new POM();
 		driver = launchBrowse();
 		launchURL("https://www.google.com/");
-		txtBoxWrite(pom.getSearchBox(), "HDFC login");
+		txtBoxWrite(pom.getGoogleSearch(), "HDFC login");
 	}
 
 }
