@@ -13,12 +13,16 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelReadWrite {
 	public static void main(String[] args) throws IOException {
-		File f = new File("D:\\Selenium Project\\SampleProject\\Test Data\\ExcelTask.xlsx");
+
+		String current = System.getProperty("user.dir");
+
+		File f = new File(current + "\\Test Data\\ExcelTask.xlsx");
 		FileInputStream isf = new FileInputStream(f);
 		Workbook w = new XSSFWorkbook(isf);
 		Sheet s = w.getSheet("input");
 
-		File fw = new File("D:\\Selenium Project\\SampleProject\\Test Data\\ExcelWrite.xlsx");
+		System.out.println(current);
+		File te = new File(current + "\\Test Data\\ExcelWrite.xlsx");
 
 		Workbook ww = new XSSFWorkbook();
 		Sheet sw = ww.createSheet("outputsheet");
@@ -37,25 +41,28 @@ public class ExcelReadWrite {
 					double d = c.getNumericCellValue();
 					long l = (long) d;
 					c1.setCellValue(l);
-//					FileOutputStream osfw = new FileOutputStream(fw);
+//					FileOutputStream osfw = new FileOutputStream(te);
 //					ww.write(osfw);
+//					osfw.flush();
+//					osfw.close();
 				} else if (t == 1) {
 					Row r1 = sw.createRow(i);
 					Cell c1 = r1.createCell(j);
 					String ca = c.getStringCellValue();
 					c1.setCellValue(ca);
-//					FileOutputStream osfw = new FileOutputStream(fw);
+//					FileOutputStream osfw = new FileOutputStream(te);
 //					ww.write(osfw);
+//					osfw.flush();
+//					osfw.close();
 
 				}
 			}
 
 		}
-		FileOutputStream osfw = new FileOutputStream(fw);
+		FileOutputStream osfw = new FileOutputStream(te);
 		ww.write(osfw);
 		osfw.flush();
 		osfw.close();
 	}
-
 
 }

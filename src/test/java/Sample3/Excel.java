@@ -13,8 +13,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class Excel {
 	public static void main(String[] args) throws IOException {
-		File te = new File(
-				"C:\\Users\\120190\\Documents\\Personal\\SW\\Sample Automation\\SampleRepoDev\\Test Data\\TestExcel.xlsx");
+		String current = System.getProperty("user.dir");
+		System.out.println(current);
+		File te = new File(current+"\\\\Test Data\\\\TestExcel.xlsx");			
+
 		FileInputStream ite = new FileInputStream(te);
 		Workbook w = new XSSFWorkbook(ite);
 		Sheet s = w.getSheet("sample");
