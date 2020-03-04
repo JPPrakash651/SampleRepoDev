@@ -26,49 +26,60 @@ public class ExcelReadWrite {
 
 		Workbook ww = new XSSFWorkbook();
 		Sheet sw = ww.createSheet("outputsheet");
-
+		
+		String[][] a= new String[50][50];
 		for (int i = 0; i < s.getPhysicalNumberOfRows(); i++) {
 			Row r = s.getRow(i);
 
 			for (int j = 0; j < r.getPhysicalNumberOfCells(); j++) {
+				
 
 				Cell c = r.getCell(j);
 				// System.out.println(c);
-				int t = c.getCellType();
-				if (t == 0) {
-					Row r1 = sw.createRow(i);
-					Cell c1 = r1.createCell(j);
-					double d = c.getNumericCellValue();
-					long l = (long) d;
-					String s1 = String.valueOf(l);
-					c1.setCellValue(s1);
-					System.out.println(c1);
-					 FileOutputStream osfw = new FileOutputStream(te);
-					 ww.write(osfw);
-					// osfw.flush();
-					 osfw.close();
+				if (c == null) {
 
-				} else if (t == 1) {
-					Row r1 = sw.createRow(i);
-					Cell c1 = r1.createCell(j);
-					String ca = c.getStringCellValue();
-					c1.setCellValue(ca);
-					System.out.println(c1);
-					 FileOutputStream osfw = new FileOutputStream(te);
-					 ww.write(osfw);
-					// osfw.flush();
-					 osfw.close();
+					System.out.println("null");
+				} else if (c != null) {
+					int t = c.getCellType();
+					if (t == 0) {
+						Row r1 = sw.createRow(i);
+						Cell c1 = r1.createCell(j);
+						double d = c.getNumericCellValue();
+						long l = (long) d;
+						String s1 = String.valueOf(l);
+						c1.setCellValue(s1);
+						System.out.println(c1);
+						a[i][j]=s1;
+						// FileOutputStream osfw = new FileOutputStream(te);
+						// ww.write(osfw);
+						// // osfw.flush();
+						// osfw.close();
+
+					} else if (t == 1) {
+						Row r1 = sw.createRow(i);
+						Cell c1 = r1.createCell(j);
+						String ca = c.getStringCellValue();
+						c1.setCellValue(ca);
+						System.out.println(c1);
+						a[i][j]=ca;
+						
+						// FileOutputStream osfw = new FileOutputStream(te);
+						// ww.write(osfw);
+						// // osfw.flush();
+						// osfw.close();
+					}
 				}
+
 				// FileOutputStream osfw = new FileOutputStream(te);
 				// ww.write(osfw);
-				//// osfw.flush();
+				// // osfw.flush();
 				// osfw.close();
 			}
 
 		}
-//		FileOutputStream osfw = new FileOutputStream(te);
-//		ww.write(osfw);
-		// osfw.flush();
-		// osfw.close();
+		FileOutputStream osfw = new FileOutputStream(te);
+		ww.write(osfw);
+		osfw.flush();
+		osfw.close();
 	}
 }
