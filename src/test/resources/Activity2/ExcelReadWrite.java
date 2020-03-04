@@ -33,36 +33,42 @@ public class ExcelReadWrite {
 			for (int j = 0; j < r.getPhysicalNumberOfCells(); j++) {
 
 				Cell c = r.getCell(j);
-				System.out.println(c);
+				// System.out.println(c);
 				int t = c.getCellType();
 				if (t == 0) {
 					Row r1 = sw.createRow(i);
 					Cell c1 = r1.createCell(j);
 					double d = c.getNumericCellValue();
 					long l = (long) d;
-					c1.setCellValue(l);
-//					FileOutputStream osfw = new FileOutputStream(te);
-//					ww.write(osfw);
-//					osfw.flush();
-//					osfw.close();
+					String s1 = String.valueOf(l);
+					c1.setCellValue(s1);
+					System.out.println(c1);
+					 FileOutputStream osfw = new FileOutputStream(te);
+					 ww.write(osfw);
+					// osfw.flush();
+					 osfw.close();
+
 				} else if (t == 1) {
 					Row r1 = sw.createRow(i);
 					Cell c1 = r1.createCell(j);
 					String ca = c.getStringCellValue();
 					c1.setCellValue(ca);
-//					FileOutputStream osfw = new FileOutputStream(te);
-//					ww.write(osfw);
-//					osfw.flush();
-//					osfw.close();
-
+					System.out.println(c1);
+					 FileOutputStream osfw = new FileOutputStream(te);
+					 ww.write(osfw);
+					// osfw.flush();
+					 osfw.close();
 				}
+				// FileOutputStream osfw = new FileOutputStream(te);
+				// ww.write(osfw);
+				//// osfw.flush();
+				// osfw.close();
 			}
 
 		}
-		FileOutputStream osfw = new FileOutputStream(te);
-		ww.write(osfw);
-		osfw.flush();
-		osfw.close();
+//		FileOutputStream osfw = new FileOutputStream(te);
+//		ww.write(osfw);
+		// osfw.flush();
+		// osfw.close();
 	}
-
 }
