@@ -71,7 +71,7 @@ public class ExcelReadWrite {
 			FileOutputStream out = new FileOutputStream(f);
 			w1.write(out);
 			out.close();
-			System.out.println("writesheet1.xlsx Successfully created");
+			System.out.println("ExcelWrite.xlsx Successfully created");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
